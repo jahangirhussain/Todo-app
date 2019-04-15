@@ -1,0 +1,43 @@
+.center {
+  text-align: center;
+ }
+
+ h1
+ {
+  font-family: cursive;
+  color: cornflowerblue;
+  font-size: 45px;
+  padding: 20px;
+ }
+ .todo-list {
+  background:blueviolet;
+  padding: 30px;
+  border-radius: 13px;
+ }
+ .completed {
+  text-decoration: line-through;
+  background: #ccc;
+ }
+ .example-h2 {
+  margin: 10px;
+}
+
+.example-section {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  height: 60px;
+}
+
+.example-margin {
+  margin: 0 10px;
+}
+.list-group-item {
+  font-family: inherit;
+  position: relative;
+  display: block;
+  padding: 10px 15px;
+  margin-bottom: 5px;
+  background-color:white;
+  border-radius: 16px;
+}

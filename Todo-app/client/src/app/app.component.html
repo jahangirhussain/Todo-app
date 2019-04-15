@@ -1,0 +1,16 @@
+<div class="navbar navbar-default" style="background: blueviolet;height: 101px;">
+  <div class="container">
+     
+        <div style="display:inline"><span *ngIf="auth.isLoggedIn()" style="margin-top: 14px;font-family: cursive;color: white;font-size: 30px ">Welcome {{ auth.getUserDetails()?.name }}</span></div>
+      
+     <div style="float:right;margin-top: 52px;">
+        <span *ngIf="!auth.isLoggedIn()"><a class="nav-button" routerLink="/login">Sign in</a></span>
+        <span *ngIf="auth.isLoggedIn()"><a  class="nav-button"  routerLink="/todo">Todo's</a></span>
+        <span *ngIf="auth.isLoggedIn()"><a class="nav-button"    routerLink="/profile">Profile</a></span>
+        <span  *ngIf="auth.isLoggedIn()"><a class="nav-button"  routerLink="" (click)="auth.logout()">Logout</a></span>
+      
+    </div>
+  </div>
+</div>
+
+<router-outlet></router-outlet>

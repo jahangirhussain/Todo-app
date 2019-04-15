@@ -1,0 +1,52 @@
+<div class="container">
+  <div class="row">
+    <div  class="col-sm-6 col-sm-offset-3 maincontainer">
+      <ng4-loading-spinner> </ng4-loading-spinner>
+      
+      <div class="todo-list" >
+        <form (submit)="addTodo($event)">
+          <div class="input-group">
+
+            <input type="text" class="form-control" name="todo" placeholder="Add Todo..." (keyup.enter)="newTodo=''" [(ngModel)]="newTodo ">
+            <span class="input-group-btn ">
+            <button class="btn btn-primary  " style="background: #f92727" type="submit" [disabled]="newTodo==''">Add</button>
+          </span>
+
+          </div>
+        </form>
+        <!-- /input-group -->
+
+        <div *ngIf="todos != ''" >
+          <br>
+          <ul class="list-group ">
+            <li class="list-group-item " *ngFor="let item of todos ; let i=index" [class.completed]="item.complete == true"  >
+              <a class="badge" (click)="delTodo(i)">X</a> {{item.todostatement }} 
+            </li>
+          
+            <!-- <li class="list-group-item " *ngFor="let item of todos ; let i=index" [class.completed]="item.complete == true"  >
+              <a class="badge" (click)="delTodo(i)">X</a> {{item.todostatement }} 
+            </li> -->
+          </ul>
+        </div>
+        <ul class="pagination">
+            <li [ngClass]="{disabled:pager.currentPage === 1}">
+                <a (click)="setPage(1)">First</a>
+            </li>
+            <li [ngClass]="{disabled:pager.currentPage === 1}">
+                <a (click)="setPage(pager.currentPage - 1)">Previous</a>
+            </li>
+            <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+                <a (click)="setPage(page)">{{page}}</a>
+            </li>
+            <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+                <a (click)="setPage(pager.currentPage + 1)">Next</a>
+            </li>
+            <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+                <a (click)="setPage(pager.totalPages)">Last</a>
+            </li>
+        </ul>
+
+      </div>
+    </div>
+  </div>
+</div>
